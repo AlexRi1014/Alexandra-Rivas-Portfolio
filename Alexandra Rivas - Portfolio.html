@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandra Rivas | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --seafoam-50:  #f0faf8;
+            --seafoam-100: #d5f1eb;
+            --seafoam-200: #aae3d6;
+            --seafoam-300: #72ccbc;
+            --seafoam-400: #42b2a0;
+            --seafoam-500: #2a9485;
+            --seafoam-600: #207870;
+            --seafoam-700: #1d6059;
+            --seafoam-800: #1c4d48;
+            --seafoam-900: #1a3f3b;
+            --teal-mid:    #31a898;
+            --sand:        #f7faf9;
+            --ink:         #16302c;
+            --muted:       #5a7a74;
+            --rule:        #d5ede8;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--sand); color: var(--ink); min-height: 100vh; }
+
+        /* ── HEADER ── */
+        .site-header { position: sticky; top: 0; z-index: 50; background: rgba(240,250,248,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+        .brand { display: flex; align-items: center; gap: 0.875rem; }
+        .brand-monogram { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--seafoam-700) 0%, var(--seafoam-400) 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1rem; color: white; letter-spacing: 0.04em; box-shadow: 0 4px 16px rgba(42,148,133,0.22); }
+        .brand-text-name { font-weight: 700; font-size: 1rem; color: var(--seafoam-800); line-height: 1.2; }
+        .brand-text-role { font-size: 0.7rem; font-weight: 500; color: var(--seafoam-500); letter-spacing: 0.06em; text-transform: uppercase; }
+        .header-nav { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { font-size: 0.8rem; font-weight: 600; color: var(--seafoam-600); text-decoration: none; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+        .nav-link:hover { color: var(--seafoam-800); }
+        .nav-cta { background: var(--seafoam-700); color: white !important; padding: 0.5rem 1.1rem; border-radius: 50px; font-size: 0.78rem; transition: background 0.2s, transform 0.15s; }
+        .nav-cta:hover { background: var(--seafoam-800); transform: translateY(-1px); }
+
+        /* ── HERO ── */
+        .hero { background: linear-gradient(135deg, var(--seafoam-800) 0%, var(--seafoam-600) 55%, var(--seafoam-400) 100%); padding: 5rem 2rem 4rem; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 420px; height: 420px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+        .hero::after { content: ''; position: absolute; bottom: -60px; left: 10%; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+        .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 0.3rem 0.85rem; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); color: white; line-height: 1.12; margin-bottom: 1rem; }
+        .hero-title em { font-style: italic; color: var(--seafoam-200); }
+        .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 520px; line-height: 1.65; margin-bottom: 1.5rem; }
+
+        /* ── ROLE PILLS ── */
+        .hero-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+        .role-pill { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 50px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 600; color: white; }
+        .role-pill i { font-size: 0.65rem; color: var(--seafoam-200); }
+
+        .hero-contacts { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .hero-contact-chip { display: flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.18); border-radius: 50px; padding: 0.45rem 0.9rem; font-size: 0.78rem; font-weight: 500; color: white; text-decoration: none; transition: background 0.2s; }
+        .hero-contact-chip:hover { background: rgba(255,255,255,0.22); }
+        .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; min-width: 220px; }
+        .stat-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); border-radius: 18px; padding: 1.25rem 1rem; text-align: center; }
+        .stat-pill .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: white; line-height: 1; }
+        .stat-pill .stat-label { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--seafoam-200); margin-top: 0.3rem; }
+
+        /* ── LAYOUT ── */
+        .page-body { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start; }
+
+        /* ── SIDEBAR ── */
+        .sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 1.25rem; }
+        .sidebar-card { background: white; border: 1px solid var(--rule); border-radius: 20px; padding: 1.5rem; }
+        .sidebar-card h3 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+        .about-text { font-size: 0.85rem; color: #4a6660; line-height: 1.7; }
+        .expertise-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+        .expertise-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 500; color: var(--seafoam-800); }
+        .expertise-list li i { color: var(--seafoam-400); font-size: 0.7rem; flex-shrink: 0; }
+        .toolkit-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tool-tag { background: var(--seafoam-50); border: 1px solid var(--seafoam-200); color: var(--seafoam-700); border-radius: 50px; padding: 0.25rem 0.65rem; font-size: 0.68rem; font-weight: 600; }
+        .sidebar-cta { display: flex; flex-direction: column; gap: 0.6rem; }
+        .cta-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .cta-primary { background: linear-gradient(135deg, var(--seafoam-700), var(--seafoam-500)); color: white; box-shadow: 0 4px 14px rgba(42,148,133,0.25); }
+        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42,148,133,0.3); }
+        .cta-secondary { background: var(--seafoam-50); color: var(--seafoam-700); border: 1px solid var(--seafoam-200); }
+        .cta-secondary:hover { background: var(--seafoam-100); }
+
+        /* ── MAIN ── */
+        .main-content { display: flex; flex-direction: column; gap: 2rem; }
+        .section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+        /* ── FILTER TABS ── */
+        .filter-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .filter-btn { padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid var(--rule); background: white; color: var(--muted); font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem; }
+        .filter-btn:hover { border-color: var(--seafoam-300); color: var(--seafoam-700); }
+        .filter-btn.active { background: var(--seafoam-700); color: white; border-color: var(--seafoam-700); box-shadow: 0 3px 10px rgba(42,148,133,0.25); }
+        .filter-btn i { font-size: 0.7rem; }
+
+        /* ── PORTFOLIO GRID ── */
+        #portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+        .p-card { background: white; border: 1px solid var(--rule); border-radius: 20px; padding: 1.5rem; cursor: pointer; transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s, border-color 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
+        .p-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(29,96,89,0.1); border-color: var(--seafoam-300); }
+        .card-icon-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+        .card-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: white; }
+        .card-metric-badge { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; color: var(--seafoam-700); background: var(--seafoam-50); border: 1px solid var(--seafoam-200); border-radius: 50px; padding: 0.22rem 0.6rem; white-space: nowrap; }
+        .card-title { font-size: 0.93rem; font-weight: 700; color: var(--seafoam-900); line-height: 1.35; margin-bottom: 0.25rem; }
+        .card-inst { font-size: 0.7rem; font-weight: 500; color: var(--muted); margin-bottom: 0.75rem; }
+        .card-summary { font-size: 0.78rem; color: #4e6860; line-height: 1.6; flex: 1; }
+        .card-footer { margin-top: 1rem; padding-top: 0.875rem; border-top: 1px solid var(--seafoam-50); display: flex; align-items: center; justify-content: space-between; }
+        .card-cat-label { font-size: 0.67rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+        .card-arrow { font-size: 0.7rem; color: var(--seafoam-500); font-weight: 700; display: flex; align-items: center; gap: 0.3rem; }
+
+        /* ── ROLE BADGE on cards ── */
+        .role-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; padding: 0.18rem 0.55rem; border-radius: 50px; margin-bottom: 0.6rem; }
+        .role-id   { background: #e8f4fe; color: #1a5f9e; }
+        .role-di   { background: #fef3e8; color: #9e5a1a; }
+        .role-pm   { background: #f0e8fe; color: #5a1a9e; }
+        .role-ce   { background: #fef0f0; color: #9e1a1a; }
+
+        /* ── FEATURED LINKS ── */
+        .featured-links-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+        .featured-link-row { display: flex; align-items: center; gap: 0.875rem; padding: 0.875rem 1rem; border: 1px solid var(--rule); border-radius: 14px; background: white; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .featured-link-row:hover { border-color: var(--seafoam-300); background: var(--seafoam-50); transform: translateX(3px); }
+        .featured-link-dot { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--seafoam-600), var(--seafoam-400)); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; flex-shrink: 0; }
+        .featured-link-text { flex: 1; }
+        .featured-link-text strong { display: block; font-size: 0.82rem; font-weight: 600; color: var(--seafoam-900); margin-bottom: 0.1rem; }
+        .featured-link-text span { font-size: 0.7rem; color: var(--muted); }
+        .featured-link-arrow { color: var(--seafoam-400); font-size: 0.75rem; }
+
+        /* ── MODAL ── */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(22,48,44,0.45); backdrop-filter: blur(6px); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal-box { background: white; border-radius: 24px; max-width: 580px; width: 100%; padding: 2rem; position: relative; transform: scale(0.95) translateY(10px); transition: transform 0.25s cubic-bezier(.4,0,.2,1); max-height: 90vh; overflow-y: auto; }
+        .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+        .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--seafoam-50); color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: background 0.2s; }
+        .modal-close:hover { background: var(--seafoam-100); color: var(--ink); }
+        .modal-icon-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .modal-icon { width: 50px; height: 50px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; }
+        .modal-cat { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--seafoam-500); }
+        .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--seafoam-900); line-height: 1.25; }
+        .modal-body { display: flex; flex-direction: column; gap: 1.1rem; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+        .modal-field label { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.3rem; }
+        .modal-field p { font-size: 0.83rem; color: #3e5e58; line-height: 1.65; }
+        .modal-metrics-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .modal-metric { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--seafoam-50); border: 1px solid var(--seafoam-200); color: var(--seafoam-700); border-radius: 10px; padding: 0.4rem 0.8rem; font-size: 0.78rem; font-weight: 600; }
+        .modal-details-box { background: var(--seafoam-50); border: 1px solid var(--seafoam-100); border-radius: 14px; padding: 1rem; font-size: 0.83rem; color: #3e5e58; line-height: 1.7; }
+        .modal-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .modal-highlights li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.82rem; color: #3e5e58; line-height: 1.55; }
+        .modal-highlights li i { color: var(--seafoam-400); font-size: 0.65rem; margin-top: 0.3rem; flex-shrink: 0; }
+        .modal-links-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .modal-link { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; font-weight: 600; color: var(--seafoam-600); text-decoration: none; border: 1px solid var(--seafoam-200); background: white; border-radius: 10px; padding: 0.5rem 0.9rem; transition: all 0.2s; }
+        .modal-link:hover { background: var(--seafoam-50); color: var(--seafoam-800); }
+
+        /* ── FOOTER ── */
+        footer { background: var(--seafoam-900); color: rgba(255,255,255,0.65); text-align: center; padding: 2rem; font-size: 0.78rem; margin-top: 4rem; }
+        footer a { color: var(--seafoam-300); text-decoration: none; }
+        footer strong { color: white; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) { .page-body { grid-template-columns: 1fr; } .sidebar { position: static; } #portfolio-grid { grid-template-columns: 1fr; } .hero-inner { grid-template-columns: 1fr; } .hero-stats { display: none; } }
+        @media (max-width: 640px) { .header-nav .nav-link:not(.nav-cta) { display: none; } .hero { padding: 3rem 1.25rem 2.5rem; } .page-body { padding: 2rem 1.25rem; } }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-monogram">AR</div>
+            <div>
+                <div class="brand-text-name">Alexandra Rivas, PMP · MBA · LSSGB</div>
+                <div class="brand-text-role">Instructional Design · Dual Immersion · Project Management · Community Engagement</div>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <a href="mailto:Alexandra.Rivas1014@gmail.com" class="nav-link"><i class="fa-regular fa-envelope"></i> Email</a>
+            <a href="tel:3854395053" class="nav-link"><i class="fa-solid fa-phone"></i> (385) 439-5053</a>
+            <a href="https://www.linkedin.com/in/rivasale/" target="_blank" class="nav-link nav-cta"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-eyebrow"><i class="fa-solid fa-circle-dot"></i> Portfolio · Bilingual · PMP · MBA · Lean Six Sigma</div>
+            <h1 class="hero-title">Building <em>bridges</em><br>between learning &amp; impact.</h1>
+            <p class="hero-sub">From bilingual classrooms in Utah to AI governance at a flagship research university — Alexandra Rivas designs, leads, and scales programs that measurably transform learners, institutions, and communities across four countries.</p>
+            <div class="hero-roles">
+                <span class="role-pill"><i class="fa-solid fa-chalkboard-user"></i> Instructional Designer</span>
+                <span class="role-pill"><i class="fa-solid fa-language"></i> Dual Immersion Instructor</span>
+                <span class="role-pill"><i class="fa-solid fa-diagram-project"></i> Project Manager</span>
+                <span class="role-pill"><i class="fa-solid fa-people-group"></i> Community Engagement</span>
+            </div>
+            <div class="hero-contacts">
+                <a href="mailto:Alexandra.Rivas1014@gmail.com" class="hero-contact-chip"><i class="fa-regular fa-envelope"></i> Alexandra.Rivas1014@gmail.com</a>
+                <a href="tel:3854395053" class="hero-contact-chip"><i class="fa-solid fa-phone"></i> (385) 439-5053</a>
+                <a href="https://www.linkedin.com/in/rivasale/" target="_blank" class="hero-contact-chip"><i class="fa-brands fa-linkedin-in"></i> /in/rivasale</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-pill"><div class="stat-num">95%</div><div class="stat-label">Participant Satisfaction</div></div>
+            <div class="stat-pill"><div class="stat-num">90%</div><div class="stat-label">Graduate Job Placement</div></div>
+            <div class="stat-pill"><div class="stat-num">85%</div><div class="stat-label">Student Proficiency Score</div></div>
+            <div class="stat-pill"><div class="stat-num">700+</div><div class="stat-label">Community Members Helped</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <h3>About</h3>
+            <p class="about-text">Fully bilingual (Spanish/English), Alexandra brings over 25 years of experience designing curricula, leading programs, and engaging communities — across higher education, K–12, corporate training, and nonprofit sectors in four countries.</p>
+        </div>
+        <div class="sidebar-card">
+            <h3>Core Expertise</h3>
+            <ul class="expertise-list">
+                <li><i class="fa-solid fa-circle-check"></i> Instructional Design &amp; LXD</li>
+                <li><i class="fa-solid fa-circle-check"></i> Dual Language Immersion (DLI)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Biliteracy &amp; SEL-Integrated Curriculum</li>
+                <li><i class="fa-solid fa-circle-check"></i> Agile / Scrum Program Management</li>
+                <li><i class="fa-solid fa-circle-check"></i> Responsible AI Governance</li>
+                <li><i class="fa-solid fa-circle-check"></i> Lean Six Sigma Process Optimization</li>
+                <li><i class="fa-solid fa-circle-check"></i> Community Consortium Building</li>
+                <li><i class="fa-solid fa-circle-check"></i> Stakeholder &amp; Change Management</li>
+            </ul>
+        </div>
+        <div class="sidebar-card">
+            <h3>Certifications &amp; Licenses</h3>
+            <ul class="expertise-list">
+                <li><i class="fa-solid fa-certificate"></i> PMP #3190813</li>
+                <li><i class="fa-solid fa-certificate"></i> Lean Six Sigma Green Belt #106751436</li>
+                <li><i class="fa-solid fa-certificate"></i> Certified Mental Health First Aider (2023)</li>
+                <li><i class="fa-solid fa-certificate"></i> CACTUS Teaching License #708350</li>
+            </ul>
+        </div>
+        <div class="sidebar-card">
+            <h3>Toolkit</h3>
+            <div class="toolkit-grid">
+                <span class="tool-tag">Canvas LMS</span>
+                <span class="tool-tag">Jira</span>
+                <span class="tool-tag">Asana</span>
+                <span class="tool-tag">MS Project</span>
+                <span class="tool-tag">SmartSheets</span>
+                <span class="tool-tag">Adobe CC</span>
+                <span class="tool-tag">Canva</span>
+                <span class="tool-tag">Google Workspace</span>
+                <span class="tool-tag">Google Analytics</span>
+                <span class="tool-tag">Microsoft 365</span>
+                <span class="tool-tag">Zoom</span>
+            </div>
+        </div>
+        <div class="sidebar-card">
+            <h3>Education</h3>
+            <ul class="expertise-list">
+                <li><i class="fa-solid fa-graduation-cap"></i> MBA — University of Utah</li>
+                <li><i class="fa-solid fa-graduation-cap"></i> BS Information Systems — UFM</li>
+                <li><i class="fa-solid fa-graduation-cap"></i> Business Analysis Diploma — Georgetown University</li>
+            </ul>
+        </div>
+        <div class="sidebar-card">
+            <h3>Affiliations</h3>
+            <p class="about-text" style="font-size:0.8rem;">University of Utah · Davis School District · Francisco Marroquín University · Universidad Galileo · Universidad Tecnológica de El Salvador · FranklinCovey · OneU Responsible AI Consortium · National Council for Mental Wellbeing</p>
+        </div>
+        <div class="sidebar-cta">
+            <a href="https://www.linkedin.com/in/rivasale/" target="_blank" class="cta-btn cta-primary"><i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn</a>
+            <a href="mailto:Alexandra.Rivas1014@gmail.com" class="cta-btn cta-secondary"><i class="fa-regular fa-envelope"></i> Email Alexandra</a>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- Filter -->
+        <div>
+            <div class="section-label">Filter by Role</div>
+            <div class="filter-row" id="filter-row">
+                <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-grip"></i> All Work</button>
+                <button class="filter-btn" data-filter="Instructional Designer"><i class="fa-solid fa-chalkboard-user"></i> Instructional Designer</button>
+                <button class="filter-btn" data-filter="Dual Immersion Instructor"><i class="fa-solid fa-language"></i> Dual Immersion Instructor</button>
+                <button class="filter-btn" data-filter="Project Manager"><i class="fa-solid fa-diagram-project"></i> Project Manager</button>
+                <button class="filter-btn" data-filter="Community Engagement"><i class="fa-solid fa-people-group"></i> Community Engagement</button>
+            </div>
+        </div>
+
+        <!-- Portfolio grid -->
+        <div id="portfolio-grid"></div>
+
+        <!-- Featured LinkedIn Links -->
+        <div>
+            <div class="section-label">Featured on LinkedIn</div>
+            <div class="featured-links-grid">
+                <a href="https://rai.utah.edu/ai-blueprint/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-brain"></i></div>
+                    <div class="featured-link-text"><strong>Utah's AI Leadership Blueprint | University of Utah</strong><span>One-U Responsible AI Initiative — authored comprehensive blueprint for ethical AI adoption in higher education</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://rai.utah.edu/opportunities/community-consortium/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="featured-link-text"><strong>OneU Responsible AI Community Consortium</strong><span>Cross-sector community engagement — bridging academia, government, industry &amp; civil society for responsible AI</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://eccles.utah.edu/students/global/eccles-ambassadors-share-lessons-from-guatemala/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="featured-link-text"><strong>Eccles Ambassadors share lessons from Guatemala — Eccles Global | UU</strong><span>Flagship Study Abroad program — entrepreneurship in developing economies, 4× enrollment growth</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://www.franklincovey.com/events/live-online-and-live-in-person/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="featured-link-text"><strong>Live Online &amp; Live In-Person Personal Workshops | FranklinCovey</strong><span>Managed comprehensive "tropicalization" process for foreign corporate learning modules</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://vimeo.com/219206895" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-people-group"></i></div>
+                    <div class="featured-link-text"><strong>Corporate Education: Teambuilding Workshops | UFM</strong><span>4-tier experiential learning model: Leadership → Teambuilding → Communication → Negotiation</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://newmedia.ufm.edu/video/maestria-en-economia-empresarial-elearning-reunion-presencial-en-boston-university-2003/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="featured-link-text"><strong>Master in Entrepreneurial Economics | UFM + Corporate Training Argentina</strong><span>Directed launch of joint graduate program in partnership with Corporate Training Argentina</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://fce.ufm.edu/ingenieria-empresarial/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-gears"></i></div>
+                    <div class="featured-link-text"><strong>Entrepreneurial Engineering Degree Curriculum Design | UFM</strong><span>New undergraduate program merging technical engineering with entrepreneurship — 15% enrollment increase</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://psm.utah.edu/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                    <div class="featured-link-text"><strong>Professional Science Masters | University of Utah</strong><span>Website and program redesign — +63% organic search traffic, +33% engagement, 4× enrollment</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://ctsi.utah.edu/cores-and-services/ccet" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-circle-nodes"></i></div>
+                    <div class="featured-link-text"><strong>Community Collaboration &amp; Engagement Team — CTSI | UU</strong><span>Website redesign that amplified community collaboration and research projects by 10×</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://vimeo.com/219625481" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <div class="featured-link-text"><strong>Non-Traditional Teaching Methods — Pioneer</strong><span>Expanded online, experiential &amp; homeschooling education in Guatemala — growing participation from 4 to 500 families</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://www.facebook.com/CentervilleUT/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div class="featured-link-text"><strong>Centerville Cares — Depression &amp; Anxiety Recovery Program</strong><span>Information, activities, and classes to reduce depression, anxiety, and suicide — 700 individuals helped</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+                <a href="https://www.galileo.edu/fisicc/carrera/maestria-investigacion-operaciones/" target="_blank" class="featured-link-row">
+                    <div class="featured-link-dot"><i class="fa-solid fa-wifi"></i></div>
+                    <div class="featured-link-text"><strong>1st Online Master Degree in Guatemala | UFM + Universidad Galileo</strong><span>Pioneered rural education access — website development, curriculum design, recruitment &amp; faculty support</span></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square featured-link-arrow"></i>
+                </a>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <strong>Alexandra Rivas, PMP · MBA · LSSGB</strong> &nbsp;·&nbsp;
+    <a href="mailto:Alexandra.Rivas1014@gmail.com">Alexandra.Rivas1014@gmail.com</a> &nbsp;·&nbsp;
+    <a href="tel:3854395053">(385) 439-5053</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/rivasale/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+    Native / Fully Bilingual: Spanish &amp; English
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box" id="modal-box">
+        <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+<script>
+// role → badge class + label
+const ROLE_META = {
+    "Instructional Designer":    { cls: "role-id", icon: "fa-chalkboard-user" },
+    "Dual Immersion Instructor": { cls: "role-di", icon: "fa-language" },
+    "Project Manager":           { cls: "role-pm", icon: "fa-diagram-project" },
+    "Community Engagement":      { cls: "role-ce", icon: "fa-people-group" }
+};
+
+const portfolioData = [
+    // ── INSTRUCTIONAL DESIGNER ──
+    {
+        id: 1,
+        roles: ["Instructional Designer", "Project Manager"],
+        title: "Utah's AI Leadership Blueprint",
+        institution: "One-U Responsible AI Initiative | University of Utah · 2025–Present",
+        summary: "Co-led design, development, and rollout of a university-wide guide for ethical AI adoption — connecting policy, workforce, research, and academic departments.",
+        highlights: [
+            "Authored the OneU Responsible AI Blueprint, establishing guidelines and best practices for ethical AI integration across research and operations.",
+            "Facilitated cross-functional working groups spanning policy, workforce, research, and academia to enforce regulatory compliance.",
+            "Directed community outreach strategies for the OneU RAI initiative, engaging internal and external stakeholders."
+        ],
+        metrics: ["Blueprint Launched University-Wide", "Cross-Dept AI Governance Framework"],
+        icon: "fa-solid fa-brain",
+        gradient: "linear-gradient(135deg, #1d6059, #42b2a0)",
+        links: [{ label: "AI Blueprint", url: "https://rai.utah.edu/ai-blueprint/" }, { label: "RAI Consortium", url: "https://rai.utah.edu/opportunities/community-consortium/" }]
+    },
+    {
+        id: 2,
+        roles: ["Instructional Designer"],
+        title: "High-Impact Agile Curricula & Professional Development",
+        institution: "Professional Science Masters | University of Utah · 2023–2025",
+        summary: "Designed and implemented structured learning frameworks aligned with live workforce skill shifts, achieving 89% student satisfaction and 90% job placement.",
+        highlights: [
+            "Partnered with corporate advisory boards to re-engineer instruction around project tools (Jira, Asana) and professional agile workflows.",
+            "Transformed passive classroom architectures into hands-on project simulation pods.",
+            "Taught Project Management, Business Development, Entrepreneurship, and Communication courses using experiential learning and case studies.",
+            "Updated course content with industry advisors, incorporating interview prep, resume writing, and professional communication skills."
+        ],
+        metrics: ["89% Student Satisfaction", "90% Career Placement Rate"],
+        icon: "fa-solid fa-arrow-up-right-dots",
+        gradient: "linear-gradient(135deg, #2a9485, #72ccbc)",
+        links: [{ label: "PSM Program", url: "https://psm.utah.edu/" }]
+    },
+    {
+        id: 3,
+        roles: ["Instructional Designer", "Project Manager"],
+        title: "4-Tier Corporate Experiential Learning Framework",
+        institution: "Universidad Francisco Marroquín (UFM) · 1997–2015",
+        summary: "Designed and facilitated a scaffolded four-tier learning model — Leadership → Teambuilding → Communication → Negotiation — across 1,500+ workshops at 95% satisfaction.",
+        highlights: [
+            "Created targeted physical and cognitive challenges mapped to each tier to force cooperative stress testing under pressure.",
+            "Supervised a cross-functional squad of facilitators and instructional assistants across 1,500+ interactive workshops.",
+            "Scaled the corporate outreach network by 50%, boosting partnership revenues by 75%.",
+            "Achieved 95% participant satisfaction across thousands of diverse professional attendees."
+        ],
+        metrics: ["95% Satisfaction", "1,500+ Workshops", "+50% Network Growth", "+75% Revenue"],
+        icon: "fa-solid fa-layer-group",
+        gradient: "linear-gradient(135deg, #207870, #42b2a0)",
+        links: [{ label: "Watch: Workshops", url: "https://vimeo.com/219206895" }, { label: "UFM Centro Excelencia", url: "https://centroexcelencia.ufm.edu/" }]
+    },
+    {
+        id: 4,
+        roles: ["Instructional Designer", "Project Manager"],
+        title: "Entrepreneurial Engineering Degree Curriculum",
+        institution: "Universidad Francisco Marroquín · 1997–2015",
+        summary: "Developed a groundbreaking undergraduate program fusing technical engineering with entrepreneurship — driving 15% enrollment growth.",
+        highlights: [
+            "Executed multi-industry focus group analyses to map employer gaps in technical engineering profiles.",
+            "Co-designed curriculum balancing quantitative tech modules with high-stakes, project-based entrepreneurship tracks.",
+            "Drove 15% increase in student engagement, retention, and enrollment.",
+            "Automated scholarship approval system, cutting wait times by 90%."
+        ],
+        metrics: ["+15% Enrollment", "90% Faster Scholarship Processing"],
+        icon: "fa-solid fa-gears",
+        gradient: "linear-gradient(135deg, #207870, #2a9485)",
+        links: [{ label: "Program Page", url: "https://fce.ufm.edu/ingenieria-empresarial/" }]
+    },
+    {
+        id: 5,
+        roles: ["Instructional Designer", "Project Manager"],
+        title: "Master in Entrepreneurial Economics",
+        institution: "UFM + Corporate Training Argentina · 1997–2015",
+        summary: "Directed launch of a joint graduate program pairing entrepreneurship theory with international industry practice.",
+        highlights: [
+            "Designed operational roadmaps integrating entrepreneurship and macroeconomic theory with real-world business applications.",
+            "Managed partnerships across institutions and international training organizations.",
+            "Enabled students to gain comparative professional advantages through updated theoretical and practical foundations."
+        ],
+        metrics: ["Graduate Program Launched", "International Partnership"],
+        icon: "fa-solid fa-chart-line",
+        gradient: "linear-gradient(135deg, #1d6059, #31a898)",
+        links: [{ label: "Program Video", url: "https://newmedia.ufm.edu/video/maestria-en-economia-empresarial-elearning-reunion-presencial-en-boston-university-2003/" }]
+    },
+    {
+        id: 6,
+        roles: ["Instructional Designer", "Project Manager"],
+        title: "1st Online Master Degree in Guatemala",
+        institution: "UFM + Universidad Galileo · 1997–2015",
+        summary: "Pioneered the first fully online master's program in Guatemala, bringing graduate education to rural and underserved communities.",
+        highlights: [
+            "Managed website development, curriculum design, student recruitment, and faculty support.",
+            "Expanded access to higher education for communities with limited access to traditional campuses.",
+            "Coordinated across UFM and Universidad Galileo stakeholders for accreditation and delivery."
+        ],
+        metrics: ["First Online Graduate Program in Guatemala", "Rural Access Initiative"],
+        icon: "fa-solid fa-wifi",
+        gradient: "linear-gradient(135deg, #207870, #2a9485)",
+        links: [{ label: "Universidad Galileo", url: "https://www.galileo.edu/fisicc/carrera/maestria-investigacion-operaciones/" }]
+    },
+    {
+        id: 7,
+        roles: ["Instructional Designer"],
+        title: "Corporate Learning Tropicalization | FranklinCovey",
+        institution: "FranklinCovey Partnerships",
+        summary: "Managed the comprehensive 'tropicalization' process — translating, re-aligning, and contextually adjusting foreign corporate learning modules for regional deployment.",
+        highlights: [
+            "Adapted overseas pedagogical tools for local instructional models across live-online and in-person formats.",
+            "Ensured cultural relevance and structural alignment for diverse professional learner populations.",
+            "Optimized delivery execution across bilingual facilitation contexts."
+        ],
+        metrics: ["Bilingual Delivery", "Multi-Market Adaptation"],
+        icon: "fa-solid fa-globe",
+        gradient: "linear-gradient(135deg, #1d6059, #2a9485)",
+        links: [{ label: "FranklinCovey Workshops", url: "https://www.franklincovey.com/events/live-online-and-live-in-person/" }]
+    },
+    {
+        id: 8,
+        roles: ["Instructional Designer"],
+        title: "Non-Traditional Education Advocacy",
+        institution: "Media Interviews & Showcase | Guatemala",
+        summary: "Championed online, experiential, and homeschooling methods as solutions to violence and rising private education costs — growing participation from 4 families to 500 families.",
+        highlights: [
+            "Developed framework solutions for online, experiential, and home-based learning as alternatives to inaccessible private schools.",
+            "Presented via media channels to expand awareness and participation in non-traditional education.",
+            "Grew participant base from 4 families to 500 families through outreach and advocacy."
+        ],
+        metrics: ["4 → 500 Families Reached"],
+        icon: "fa-solid fa-tower-broadcast",
+        gradient: "linear-gradient(135deg, #2a9485, #aae3d6)",
+        links: [{ label: "Watch: Media Feature", url: "https://vimeo.com/219625481" }]
+    },
+
+    // ── DUAL IMMERSION INSTRUCTOR ──
+    {
+        id: 9,
+        roles: ["Dual Immersion Instructor"],
+        title: "Spanish Dual Language Immersion Program",
+        institution: "Davis School District, Farmington UT · 2017–2022",
+        summary: "Led bilingual curriculum design, cultural programming, and differentiated instruction across diverse Spanish proficiency levels — achieving 85% average student proficiency and 50% gains in engagement.",
+        highlights: [
+            "Collaborated with educators and stakeholders to design Spanish language courses aligned with state standards, accommodating diverse student needs and varying proficiency levels.",
+            "Led curriculum planning and organized language and cultural workshops, boosting student engagement, retention, and assessment performance by 50%.",
+            "Developed and launched new online and in-person courses, increasing resource efficiency by 25% by reducing paper and supply usage while streamlining grading processes.",
+            "Provided real-time feedback to students and parents through streamlined digital grading workflows.",
+            "Integrated Social-Emotional Learning (SEL) and Certified Mental Health First Aid principles into classroom management."
+        ],
+        metrics: ["85% Average Proficiency Score", "+50% Student Engagement", "+25% Resource Efficiency"],
+        icon: "fa-solid fa-language",
+        gradient: "linear-gradient(135deg, #c97d20, #e8a84a)",
+        links: []
+    },
+    {
+        id: 10,
+        roles: ["Dual Immersion Instructor", "Instructional Designer"],
+        title: "Global Business Immersion: Entrepreneurship in Guatemala",
+        institution: "Eccles Global | University of Utah School of Business · 2016–2018",
+        summary: "Created and instructed a flagship bilingual Study Abroad program pairing live business case studies with field work in an emerging economy — quadrupling enrollment and cutting costs 30%.",
+        highlights: [
+            "Pioneered a dual-layered curriculum framework pairing active business case studies with live field studies in Guatemala.",
+            "Structured collaborative research models where students worked directly with local vendors and startups.",
+            "Collaborated with staff from two universities to design and implement the program.",
+            "Quadrupled enrollment over three years while negotiating vendor contracts to reduce costs by 30% compared to similar programs."
+        ],
+        metrics: ["4× Enrollment Growth", "−30% Operating Costs"],
+        icon: "fa-solid fa-graduation-cap",
+        gradient: "linear-gradient(135deg, #b86e10, #e8a84a)",
+        links: [{ label: "Eccles Article", url: "https://eccles.utah.edu/students/global/eccles-ambassadors-share-lessons-from-guatemala/" }]
+    },
+
+    // ── PROJECT MANAGER ──
+    {
+        id: 11,
+        roles: ["Project Manager"],
+        title: "PSM Website Redesign & Enrollment Growth Engine",
+        institution: "Professional Science Masters | University of Utah · 2022–2025",
+        summary: "Led Agile-driven website and technology improvement projects that boosted organic search traffic 63%, engagement 33%, and quadrupled enrollment — generating $76K in new revenue.",
+        highlights: [
+            "Led Agile website revamp and social media campaigns in collaboration with design and content teams, achieving 63% increase in organic search traffic and 33% boost in engagement (Google Analytics).",
+            "Quadrupled program enrollment and increased revenue by $76,000 while saving $15,000 in outsourced marketing costs.",
+            "Analyzed historical data to target undergraduate institutions and engaged prospective students at STEM career fairs.",
+            "Redesigned accounting workflows, reducing turnaround from two weeks to one day and cutting errors from 25% to 10%.",
+            "Restructured internal meetings from 5.5 to 1.5 hours with results-focused agendas, improving on-time project completion from 50% to 90%."
+        ],
+        metrics: ["+63% Organic Traffic", "+33% Engagement", "4× Enrollment", "$76K New Revenue", "−$15K Marketing Costs"],
+        icon: "fa-solid fa-magnifying-glass-chart",
+        gradient: "linear-gradient(135deg, #5a1a9e, #9e6ad4)",
+        links: [{ label: "PSM Program", url: "https://psm.utah.edu/" }]
+    },
+    {
+        id: 12,
+        roles: ["Project Manager"],
+        title: "Process Improvement: Workflows & Team Operations",
+        institution: "University of Utah · 2022–2025",
+        summary: "Redesigned financial workflows and operational processes — cutting error rates, dramatically improving on-time delivery, and scaling service capacity 10×.",
+        highlights: [
+            "Redesigned accounting workflows by analyzing inefficiencies, introduced centralized cost calculation spreadsheets and FAQ systems, cutting errors from 25% to 10%.",
+            "Restructured internal processes, reducing meeting durations from 5.5 to 1.5 hours with structured agendas.",
+            "Improved on-time project completion from 50% to 90% and increased service offerings from 2 to 20 per month.",
+            "Streamlined processes with advising and coaching teams, boosting student success metrics by 25% and reducing program completion time by 15%.",
+            "Led recruitment initiatives achieving 25% growth in team size through strategic hiring."
+        ],
+        metrics: ["Errors: 25% → 10%", "On-Time: 50% → 90%", "Services: 2 → 20/month", "+25% Student Success"],
+        icon: "fa-solid fa-arrows-spin",
+        gradient: "linear-gradient(135deg, #4a1a8e, #8a5ad4)",
+        links: []
+    },
+    {
+        id: 13,
+        roles: ["Project Manager"],
+        title: "CTSI Community Collaboration Framework",
+        institution: "Clinical & Translational Science Institute | University of Utah · 2022",
+        summary: "Managed cross-functional outreach programs in Spanish and English, expanding strategic community partnerships tenfold and driving 50% growth in active engagement.",
+        highlights: [
+            "Expanded strategic community partnerships tenfold, driving a 50% increase in active community engagement and participation.",
+            "Facilitated workshops and community outreach programs in both Spanish and English, creating inclusive spaces for diverse participants.",
+            "Redesigned financial workflows and operational meetings, cutting process errors from 25% to 10% and improving on-time project completion from 50% to 90%.",
+            "Website redesign boosted community collaboration, engagement, and research projects 10×."
+        ],
+        metrics: ["10× Partnership Growth", "+50% Engagement", "Bilingual Facilitation"],
+        icon: "fa-solid fa-circle-nodes",
+        gradient: "linear-gradient(135deg, #3e1a7e, #7a5ac4)",
+        links: [{ label: "CTSI CCET", url: "https://ctsi.utah.edu/cores-and-services/ccet" }]
+    },
+    {
+        id: 14,
+        roles: ["Project Manager"],
+        title: "Capstone Project Growth & Employer Partnerships",
+        institution: "Professional Science Masters | University of Utah · 2022–2025",
+        summary: "Grew Capstone Project placements 40% by leveraging professional networks and aligning curriculum with industry standards, achieving a 95% project completion rate.",
+        highlights: [
+            "Leveraged personal and professional networks to grow Capstone placements by 40%, fostering strong employer partnerships.",
+            "Aligned Capstone Projects with industry standards by collaborating with students, faculty, and industry partners.",
+            "Incorporated feedback from alumni and business leaders on desired employee skills.",
+            "Designed and managed project dashboards and KPI performance metrics to track deliverables and report progress to leadership."
+        ],
+        metrics: ["+40% Capstone Placements", "95% Project Completion"],
+        icon: "fa-solid fa-briefcase",
+        gradient: "linear-gradient(135deg, #5a1a9e, #a07ad4)",
+        links: [{ label: "PSM Program", url: "https://psm.utah.edu/" }]
+    },
+    {
+        id: 15,
+        roles: ["Project Manager"],
+        title: "UFM Program & Operations Management",
+        institution: "Universidad Francisco Marroquín · 1997–2015",
+        summary: "Directed diverse project teams through the launch of two online master's programs and one undergraduate program, while automating scholarship systems and centralizing procurement.",
+        highlights: [
+            "Managed diverse project teams to launch two online master's programs and one undergraduate program, driving 15% increase in enrollment and retention.",
+            "Automated the scholarship approval system, replacing a manual paper process with a digital workflow cutting wait times by 90%.",
+            "Centralized and streamlined supply purchasing, achieving 20% cost reduction through bulk-buying strategies.",
+            "Expanded the Corporate Outreach Program by 50%, increasing revenue 75% through strategic partnerships."
+        ],
+        metrics: ["+15% Enrollment", "90% Faster Processing", "−20% Supply Costs", "+75% Revenue"],
+        icon: "fa-solid fa-sitemap",
+        gradient: "linear-gradient(135deg, #3a0a8e, #7040c4)",
+        links: []
+    },
+
+    // ── COMMUNITY ENGAGEMENT ──
+    {
+        id: 16,
+        roles: ["Community Engagement", "Project Manager"],
+        title: "OneU Responsible AI Community Consortium",
+        institution: "University of Utah · 2025–Present",
+        summary: "Spearheading cross-sector engagement to bridge academia, government, industry, and civil society — expanding inclusive AI education and workforce pipelines across K–12 and higher education.",
+        highlights: [
+            "Directed community outreach strategies for the OneU RAI initiative, engaging internal and external stakeholders on inclusive and ethical AI adoption.",
+            "Drove strategic programming addressing public concerns around AI safety and ethics.",
+            "Expanded inclusive educational and workforce pipelines across K-12, higher education, and the broader community.",
+            "Fostered dialogue across diverse communities, ensuring societal impact alongside institutional compliance."
+        ],
+        metrics: ["K–12 through Higher Ed Pipeline", "Cross-Sector Consortium"],
+        icon: "fa-solid fa-earth-americas",
+        gradient: "linear-gradient(135deg, #9e1a1a, #d46a6a)",
+        links: [{ label: "RAI Consortium", url: "https://rai.utah.edu/opportunities/community-consortium/" }]
+    },
+    {
+        id: 17,
+        roles: ["Community Engagement"],
+        title: "Depression & Anxiety Recovery Program",
+        institution: "Centerville Cares · 2021–Present",
+        summary: "Board Member, Instructor, and Webmaster delivering mental health education and recovery programming — having helped 700 individuals reduce depression, anxiety, and suicidal ideation.",
+        highlights: [
+            "Provides information, classes, and community activities focused on mental health recovery and suicide prevention.",
+            "Serves as Board Member, Instructor, and Webmaster, managing web presence and educational programming.",
+            "Certified Mental Health First Aider (2023) and active member of the National Council for Mental Wellbeing.",
+            "Helped 700 individuals access support and build resilience through structured programming."
+        ],
+        metrics: ["700 Individuals Helped", "Ongoing Since 2021"],
+        icon: "fa-solid fa-heart-pulse",
+        gradient: "linear-gradient(135deg, #8e1a1a, #c45a5a)",
+        links: [{ label: "Centerville Cares", url: "https://www.facebook.com/CentervilleUT/" }]
+    },
+    {
+        id: 18,
+        roles: ["Community Engagement"],
+        title: "HOA Community Governance Leadership",
+        institution: "Florentine Townhomes HOA (2022–Present) · Century Park East HOA (2025–Present)",
+        summary: "Elected and re-elected HOA Board President across two communities — improving financial ROI 10×, reducing expenses 24%, and building volunteer governance teams.",
+        highlights: [
+            "President (Reelected) — Florentine Townhomes HOA: Managed financial strategies improving ROI by 10×, enhanced vendor communications, and negotiated updated contracts reducing expenses by 24%.",
+            "President — Century Park East HOA: Presiding over a self-managed community, organizing governance, policy guidelines, and strategically managing vendors and community budgets.",
+            "Building a team of volunteers to run community board operations and ensure sustainable governance.",
+            "Demonstrating ability to interface effectively with diverse community leaders and implement policy initiatives."
+        ],
+        metrics: ["10× Financial ROI", "−24% Expenses", "2 Communities Served"],
+        icon: "fa-solid fa-landmark",
+        gradient: "linear-gradient(135deg, #7e1a1a, #b44040)",
+        links: []
+    },
+    {
+        id: 19,
+        roles: ["Community Engagement", "Instructional Designer"],
+        title: "AI Curriculum & Policy Consulting | Club Ability",
+        institution: "Club Ability · 2025–Present",
+        summary: "Providing strategic advising on AI curriculum architecture and technology policy integration to expand inclusive AI education pipelines.",
+        highlights: [
+            "Advising on AI course curriculum development and policy development for innovation and technology initiatives.",
+            "Connecting underrepresented communities with AI literacy and workforce readiness programming."
+        ],
+        metrics: ["AI Policy Advisory", "Inclusive Curriculum Design"],
+        icon: "fa-solid fa-lightbulb",
+        gradient: "linear-gradient(135deg, #9e1a40, #d46080)",
+        links: []
+    },
+    {
+        id: 20,
+        roles: ["Community Engagement"],
+        title: "Startup & Leadership Mentorship",
+        institution: "Women Who Succeed (2021) · Wakami Foundation (2016–2020)",
+        summary: "Mentored emerging leaders and entrepreneurs, fostering relationships in the tech and startup ecosystem and promoting gender-inclusive entrepreneurship.",
+        highlights: [
+            "Mentored for Women Who Succeed, actively fostering relationships within the tech and startup ecosystem.",
+            "Mentored for Wakami Foundation, a U.S.-based Certified B Corporation, promoting entrepreneurship in underserved communities.",
+            "Supported women leaders in developing business acumen, professional networks, and strategic decision-making skills."
+        ],
+        metrics: ["Multi-Year Mentorship", "Tech & Startup Ecosystem"],
+        icon: "fa-solid fa-seedling",
+        gradient: "linear-gradient(135deg, #8e1a30, #c45060)",
+        links: []
+    }
+];
+
+// ── RENDER ──
+const grid = document.getElementById('portfolio-grid');
+
+function renderCards(filter) {
+    grid.innerHTML = '';
+    const data = (!filter || filter === 'all')
+        ? portfolioData
+        : portfolioData.filter(i => i.roles.includes(filter));
+
+    data.forEach(item => {
+        const primaryRole = item.roles[0];
+        const rm = ROLE_META[primaryRole] || { cls: 'role-id', icon: 'fa-circle' };
+        const card = document.createElement('div');
+        card.className = 'p-card';
+        card.innerHTML = `
+            <div>
+                <div class="card-icon-row">
+                    <div class="card-icon" style="background:${item.gradient}"><i class="${item.icon}"></i></div>
+                    <span class="card-metric-badge">${item.metrics[0]}</span>
+                </div>
+                <span class="role-badge ${rm.cls}"><i class="fa-solid ${rm.icon}"></i> ${primaryRole}</span>
+                <h3 class="card-title">${item.title}</h3>
+                <p class="card-inst">${item.institution}</p>
+                <p class="card-summary">${item.summary}</p>
+            </div>
+            <div class="card-footer">
+                <span class="card-cat-label">${item.roles.join(' · ')}</span>
+                <span class="card-arrow">Details <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+        `;
+        card.addEventListener('click', () => openModal(item));
+        grid.appendChild(card);
+    });
+}
+
+// ── FILTER ──
+document.getElementById('filter-row').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards(btn.dataset.filter);
+});
+
+// ── MODAL ──
+const overlay = document.getElementById('modal-overlay');
+const modalContent = document.getElementById('modal-content');
+
+function openModal(item) {
+    const metricsHTML = item.metrics.map(m =>
+        `<span class="modal-metric"><i class="fa-solid fa-circle-check"></i> ${m}</span>`
+    ).join('');
+    const highlightsHTML = item.highlights.map(h =>
+        `<li><i class="fa-solid fa-circle-dot"></i> ${h}</li>`
+    ).join('');
+    const linksHTML = item.links.length ? `
+        <div class="modal-field">
+            <label>References</label>
+            <div class="modal-links-row">
+                ${item.links.map(l => `<a href="${l.url}" target="_blank" class="modal-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${l.label}</a>`).join('')}
+            </div>
+        </div>` : '';
+
+    modalContent.innerHTML = `
+        <div class="modal-icon-row">
+            <div class="modal-icon" style="background:${item.gradient}"><i class="${item.icon}"></i></div>
+            <div>
+                <div class="modal-cat">${item.roles.join(' · ')}</div>
+                <h2 class="modal-title">${item.title}</h2>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-field">
+                <label>Institution</label>
+                <p>${item.institution}</p>
+            </div>
+            <div class="modal-field">
+                <label>Key Results</label>
+                <div class="modal-metrics-row">${metricsHTML}</div>
+            </div>
+            <div class="modal-field">
+                <label>Highlights</label>
+                <ul class="modal-highlights">${highlightsHTML}</ul>
+            </div>
+            ${linksHTML}
+        </div>
+    `;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+renderCards('all');
+</script>
+</body>
+</html>
